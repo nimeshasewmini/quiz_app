@@ -1,15 +1,17 @@
 import React from 'react'
-import questions from './questions'
+import Questions from './Questions';
 
 
 export default function quiz() {
-  {/*prev buttton event handler */}
+
+  /**prev buttton event handler */
   function onPrev(){
-    console.log('On  onprev click')
+    console.log('On prev click')
   }
-  {/*next buttton event handler */}
+
+  /**next buttton event handler */
   function onNext(){
-    console.log('On onnext click')
+    console.log('On next click')
   }
 
   return (
@@ -17,7 +19,8 @@ export default function quiz() {
       <h1 className='title text-light'>Quiz Application</h1>
 
       {/* display questions*/}
-      <questions/>
+      <Questions/>
+
 
       <div className='grid'>
         <button className='btn prev' onClick={onPrev}>Prev</button>

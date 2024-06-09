@@ -1,28 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 export default function Questions() {
-    const [checked, setChecked] = useState(false);  // or any appropriate initial value
+  const [checked,setchecked] = useState(undefined)
 
-    function onSelect() {
-      
-        console.log('radio button change');
-        setChecked(!checked); // Toggle the checked state
-    }
+    function onSelect(){
+        console.log('radio button change')
+       
+      } 
 
-    return (
-        <div className='questions'>
-            <h2 className='text-light'>Simple Question 1</h2>
-            <ul>
-                <li>
-                    <input
-                        type="radio"
-                        checked={checked}
-                        name="options"
-                        id='q1-option'
-                        onChange={onSelect} // Pass the function reference
-                    />
-                </li>
-            </ul>
-        </div>
-    );
+  return (
+    <div className='questions'>
+      <h2 className='text-light'>Simple Question 1</h2>
+
+      <ul>
+        <li>
+            <input 
+            type="radio"
+            value={false}
+            name="option"
+            id='q1-option'
+            onChange={onSelect}
+            />
+            
+            <label className='text-primary' htmlFor="q1-option">option</label>
+            <div className='check checked'></div>
+        </li>
+      </ul>
+    </div>
+  )
 }

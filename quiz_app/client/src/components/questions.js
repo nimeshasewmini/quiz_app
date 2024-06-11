@@ -1,34 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import data from '../database/data'
 
-export default function Questions() {
+export default function Questions({onchecked}) {
   const [checked,setchecked] = useState(undefined)
 
-  const question=data[0]
+  const question = data[0]
 
-  useEffect(() => {
-    console.log(question)
+  useEffect(() => { 
+     console.log(question)
   })
 
-    function onSelect(){
-        console.log('radio button change')
-       
-      } 
+  
+  function onSelect(i){
+    console.log('radio button change')
+   
+  } 
 
   return (
     <div className='questions'>
-      <h2 className='text-light'>{question?.question}</h2>
+      <h2 className='text-light'>Simple question 1  {/**{question?.question*/}</h2> 
 
-      <ul key={question.id }>
+      <ul key={question .id }>
        {
         question.options.map((q,i)=>(
             <li key={i}>
                 <input 
                 type="radio"
-                value={false}
-                name="option"
+                value={checked}
+                name="options"
                 id={'q${i}-option'} 
-                onChange={onSelect()}
+                onChange={()=>onSelect(i)}
                 />
                 
                 <label className='text-primary' htmlFor={'q${i}-option'}>{q}</label>
@@ -36,6 +37,7 @@ export default function Questions() {
             </li>
           )
       )
+      
        }
       </ul>
     </div>

@@ -1,18 +1,13 @@
-import {configuerStore} from '@reduxjs/toolkit'
+import {combineReducers,configuerStore} from '@reduxjs/toolkit'
 
 /**call reducer */
-import rootReducer from '../reducers'; 
-import questionReducer from './question_Reducer';
-import {resultReducer} from './result_reducer';
-import rootReducer from '../reducers'; 
-const store = createStore(rootReducer);
-
-export default store;
+import QuestionReducer from './question_reducer'
+import resultReducer from './result_reducer';
 
 const rootReducer = combineReducers({
-    questions :questionReducer,
+    questions : QuestionReducer,
     result : resultReducer
-})
+});
 
 /**create store with reducer */
-export default configuerStore({ reducer : rootReducer })
+export default configuerStore ({ reducer : rootReducer })

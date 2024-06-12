@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import data from '../database/data'
 
-export default function Questions({onchecked}) {
-  const [checked,setchecked] = useState(undefined)
 
+/**Custom Hook */
+import { useFetchQuestion } from '../hooks/FetchQuestion'
+
+
+export default function Questions() {
+  const [checked,setchecked] = useState(undefined)
+  const [{isLoading, apiData, serverError }] =  useFetchQuestion()
   const question = data[0]
 
   useEffect(() => { 
-     //console.log(question)
+     //console.log(isLoading)
+     //console.log(apiData)
+     //console.log(serverError)
   })
 
   
@@ -18,7 +25,7 @@ export default function Questions({onchecked}) {
 
   return (
     <div className='questions'>
-      <h2 className='text-light'>Simple question 1  {/**{question?.question*/}</h2> 
+      <h2 className='text-light'>{question.question}</h2> 
 
       <ul key={question .id }>
        {

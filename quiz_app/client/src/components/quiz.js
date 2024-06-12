@@ -1,20 +1,20 @@
-import React from 'react'
-import Questions from './Questions';
+import React,  { useEffect } from 'react'
+import Questions from './Questions'
 
 /**redux store import */
 import {useSelector} from 'react-redux'
 
-export default function quiz() {
+export default function Quiz() {
   
   const state = useSelector(state => state)
 
   useEffect(() => {
-    console.log(state)
+    //console.log(state)
   })
 
   /**next buttton event handler */
   function onNext(){
-    console.log('On next click');
+    console.log('On next click')
   }
 
   /**prev buttton event handler */

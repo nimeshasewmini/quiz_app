@@ -5,7 +5,7 @@ import App from './components/App';
 
 /**Redux Store */
 import store from './store/store';
-
+ 
 //import store from './redux.store';
 import {Provider} from 'react-redix';
 const root = ReactDOM.createRoot(document.getElementById('root'));

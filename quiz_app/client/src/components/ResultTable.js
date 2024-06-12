@@ -14,7 +14,7 @@ export default function ResultTable() {
         </thead>
         <tbody>
             <tr className='table-body'>
-                <td>Username</td>
+                <td>Nima</td>
                 <td>03</td>
                 <td>20</td>
                 <td>Passed</td>

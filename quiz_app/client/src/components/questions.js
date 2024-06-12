@@ -7,12 +7,12 @@ export default function Questions({onchecked}) {
   const question = data[0]
 
   useEffect(() => { 
-     console.log(question)
+     //console.log(question)
   })
 
   
   function onSelect(i){
-    console.log('radio button change')
+    //console.log('radio button change')
    
   } 
 

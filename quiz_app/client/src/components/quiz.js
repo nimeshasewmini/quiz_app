@@ -1,13 +1,20 @@
 import React from 'react'
 import Questions from './Questions';
-import { Link } from 'react-router-dom';
 
+/**redux store import */
+import {useSelector} from 'react-redux'
 
 export default function quiz() {
-    
+  
+  const state = useSelector(state => state)
+
+  useEffect(() => {
+    console.log(state)
+  })
+
   /**next buttton event handler */
   function onNext(){
-    console.log('On next click')
+    console.log('On next click');
   }
 
   /**prev buttton event handler */
@@ -32,5 +39,5 @@ export default function quiz() {
       </div>
 
     </div>
-  )
+  );
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/Result.css'
 import { Link } from 'react-router-dom'
+import ResultTable from './ResultTable'
 
 export default function Result(){
 
@@ -14,7 +15,7 @@ export default function Result(){
       <div className='result flex-center'>
         <div className='flex'>
           <span>Username : </span>
-          <span className='bold'>Daily Tution</span>
+          <span className='bold'> Nima </span>
         </div>
 
         <div className='flex'>
@@ -44,9 +45,13 @@ export default function Result(){
       </div>
       
       <div className='start'>
-        <Link className='btn' to={'/'} onClick={onRestart}>Restart</Link>
+        <Link className='restart btn' to={'/'} onClick={onRestart}>Restart</Link>
       </div>
 
+      <div className='container'>
+         {}
+        <ResultTable></ResultTable>
+      </div>
 
     </div>
   )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import data from "../database/data"
-import { useDispatch } from "react-redux"
+import data from "../database/data";
+import { useDispatch } from "react-redux";
 
 
 /**redux actions */
@@ -39,4 +39,13 @@ export const useFetchQuestion = () => {
     }, [ dispath ] ); 
 
     return [getData , setGetData];
+}
+
+/**move Action dispatch function */
+export const moveNextAction = () => async(dispatch) => {
+    try {
+        dispatch(Action.moveNextAction())
+    } catch (error) {
+        Console.log(error)
+    }
 }

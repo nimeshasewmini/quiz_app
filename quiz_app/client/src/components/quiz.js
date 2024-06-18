@@ -1,4 +1,4 @@
-import React,  { useEffect } from 'react'
+import React,  { useEffect, useState } from 'react'
 import Questions from './Questions'
 import {moveNextQuestion , movePrevQuestion } from '../hooks/FetchQuestion';
 /**redux store import */
@@ -6,13 +6,13 @@ import {useSelector , useDispatch} from 'react-redux'
 import {pushAnswer} from '../hooks/setResult'
 
 export default function Quiz() {
-  
+  const[check, setchecked] =useState(undefined)
   const state = useSelector(state => state=>state);
   const {queue,trace} = useSelector(state => state.questions);
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log(state)
+      console.log(state)
   })
 
   /**next buttton event handler */
@@ -22,7 +22,7 @@ export default function Quiz() {
                 //update the trace value by one using mov NECXT question 
                 dispatch(moveNextQuestion());
 
-                dispatch(pushAnswer(1))
+                dispatch(pushAnswer(check))
           }
 
   }
@@ -35,14 +35,17 @@ export default function Quiz() {
             dispatch(movePrevQuestion());}
   }
 
-
+        function onChecked(check){
+            console.log(check)
+            setchecked(check)
+        }
 
   return (
     <div className='container'>
       <h1 className='title text-light'>Quiz Application</h1>
 
       {/* display questions*/}
-      <Questions/>
+      <Questions onChecked={onChecked}/>
 
 
       <div className='grid'>
@@ -52,5 +55,6 @@ export default function Quiz() {
       </div>
 
     </div>
-  );
+  )
 }
+

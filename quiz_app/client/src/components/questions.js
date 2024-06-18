@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { useFetchQuestion } from '../hooks/FetchQuestion'
 
 
-export default function Questions() {
+export default function Questions({onChecked}) {
   const [checked,setchecked] = useState(undefined)
   const [{isLoading, apiData, serverError }] =  useFetchQuestion()
  
@@ -18,8 +18,8 @@ export default function Questions() {
     console.log(questions)
   })
   
-  function onSelect(){
-    //console.log('radio button change')
+  function onSelect(i){
+    onChecked(i)
    
   } 
 
@@ -39,7 +39,7 @@ if(serverError) return <h3 className='text-light'>{serverError || "unknown Error
                 value={false}
                 name="options"
                 id={'q${i}-option'} 
-                onChange={onSelect()}
+                onChange={ () => onSelect(i)}
                 />
                 
                 <label className='text-primary' htmlFor={'q${i}-option'}>{q}</label>

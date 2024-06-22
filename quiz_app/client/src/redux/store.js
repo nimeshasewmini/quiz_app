@@ -1,5 +1,6 @@
-import {combineReducers,configuerStore} from '@reduxjs/toolkit'
-
+//import store from './';
+//import { Provider } from 'react-redux';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 /**call reducer */
 import QuestionReducer from './question_reducer'
 import resultReducer from './result_reducer';
@@ -10,4 +11,4 @@ const rootReducer = combineReducers({
 });
 
 /**create store with reducer */
-export default configuerStore ({ reducer : rootReducer })
+export default configureStore ({ reducer : rootReducer })

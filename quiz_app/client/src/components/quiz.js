@@ -10,8 +10,9 @@ import { Navigate } from 'react-router-dom';
 
 export default function Quiz() {
   const[check, setchecked] =useState(undefined)
+  const state = useSelector((state) => state.someReducer);
 
-  const result = useSelector(state => state.result.result);
+  const result = useSelector((state) => state.result.result);
   const {queue,trace} = useSelector(state => state.questions);
   const dispatch = useDispatch()
 
@@ -54,7 +55,7 @@ export default function Quiz() {
       <h1 className='title text-light'>Quiz Application</h1>
 
       {/* display questions*/}
-      <Questions onChecked={onChecked}/>
+      <questions onChecked={onChecked}/>
 
 
       <div className='grid'>

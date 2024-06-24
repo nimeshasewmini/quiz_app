@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import data from '../database/data'
-
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 /**Custom Hook */
 import { useFetchQuestion } from '../hooks/FetchQuestion'
-
+import { updateResult } from '../hooks/setResult'
+ 
 
 export default function Questions({onChecked}) {
   const [checked,setchecked] = useState(undefined)
+  const {trace} = useSelector(state => state.questions);
+  const result = useSelector(state => state.result.result);
   const [{isLoading, apiData, serverError }] =  useFetchQuestion()
- 
-
+ useSelector (state => console.log(state));
   const questions = useSelector(state => state.questions.queue[state.questions.trace])
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log(questions)
-  })
+    dispatch(updateResult({trace, checked}))
+  },[checked])
   
   function onSelect(i){
     onChecked(i)
-   
+    setchecked(i)
+    dispatch(updateResult({trace, checked}))
   } 
 
 if(isLoading) return <h3 className='text-light'>isLoading</h3>
@@ -28,9 +30,9 @@ if(serverError) return <h3 className='text-light'>{serverError || "unknown Error
 
   return (
     <div className='questions'>
-      <h2 className='text-light'>{question?.question}</h2> 
+      <h2 className='text-light'>{questions?.question}</h2> 
 
-      <ul key={question?.id }>
+      <ul key={questions?.id }>
        {
         questions?.options.map((q,i) => (
             <li key={i}>
@@ -38,12 +40,12 @@ if(serverError) return <h3 className='text-light'>{serverError || "unknown Error
                 type="radio"
                 value={false}
                 name="options"
-                id={'q${i}-option'} 
-                onChange={ () => onSelect(i)}
+                id={`q${i}-option`} 
+                onChange={() => onSelect(i)}
                 />
                 
-                <label className='text-primary' htmlFor={'q${i}-option'}>{q}</label>
-                <div className='check'></div>
+                <label className='text-primary' htmlFor={`q${i}-option`}>{q}</label>
+                <div className={`check ${result[trace] == i ? 'checked' : '' }`}></div>
             </li>
           ))
       }

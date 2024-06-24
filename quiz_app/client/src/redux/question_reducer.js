@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 /**create reducer */
-export const questionReducer =createSlice({
+export const questionReducer = createSlice({
     name : 'questions',
     initialState : {
         queue : [ ],
@@ -10,9 +10,11 @@ export const questionReducer =createSlice({
     },
     reducers : {
         startExamAction: (state, action) => {
+            let {question, answers} = action.payload
             return{
                 ...state,
-                queue : action.payload
+                queue : question,
+                answers
             }
         },
         moveNextAction : (state) => {

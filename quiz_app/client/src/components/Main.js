@@ -9,9 +9,9 @@ export default function Main() {
     const inputRef = useRef(null)
     const dispatch = useDispatch()
 
-    function startQuiz (){
+    function startQuiz(){
       if(inputRef.current?.value){
-          dispatch(setUserId(inputRef.current?.value));
+          dispatch(setUserId(inputRef.current?.value))
       }
     }
 
@@ -28,7 +28,7 @@ export default function Main() {
       </ol>
 
 <form id="form">
-    <input ref={inputRef} className="userid" type="text" placeholder='username' ></input>
+    <input ref={inputRef} className="userid" type="text" placeholder='username*'/>
 </form>
 
 <div className='start'>

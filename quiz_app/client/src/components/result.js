@@ -11,6 +11,10 @@ import { resetAllAction } from '../redux/question_reducer';
 import { resetResultAction } from '../redux/result_reducer';
 //import{usePublishResult} from '../hooks/setResult';
 
+function onRestart() {
+  // Function logic here
+}
+
 
 export default function Result(){
 

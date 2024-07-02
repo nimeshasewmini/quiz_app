@@ -20,7 +20,7 @@ export async function getResult(req,res){
 }
 
 /**insert all result */
-export async function insertResult(req,res){
+export async function storeResult(req,res){
     res.json("result api post request");
 }
 

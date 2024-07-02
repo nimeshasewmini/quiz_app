@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import '../styles/Main.css'
 import { setUserId } from '../redux/result_reducer'
 
@@ -8,10 +9,12 @@ export default function Main() {
 
     const inputRef = useRef(null)
     const dispatch = useDispatch()
+    const navigate = useNavigate();
 
     function startQuiz(){
       if(inputRef.current?.value){
           dispatch(setUserId(inputRef.current?.value))
+          
       }
     }
 
@@ -32,7 +35,7 @@ export default function Main() {
 </form>
 
 <div className='start'>
-    <Link className='start btn' to={'/quiz'} onClick={startQuiz}>Start Quiz</Link>
+<a className='start btn' href='/quiz' onClick={startQuiz}>Start Quiz</a>
 </div>
 
     

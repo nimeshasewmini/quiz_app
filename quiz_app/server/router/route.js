@@ -12,9 +12,9 @@ router.route('/questions')
     .post(controllers.insertQuestions) /**POST Request */
     .delete(controllers.dropQuestions) /**DELETE Request */
 
-router.route('/questions')
+router.route('/result')
     .get(controllers.getResult) /**GET Result */
-    .post(controllers.insertResult) /**POST Result */
+    .post(controllers.storeResult) /**POST Result */
     .delete(controllers.dropResult) /**DELETE Result */
 
 export default router;

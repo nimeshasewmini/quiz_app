@@ -1,5 +1,5 @@
 import React,  { useEffect, useState } from 'react'
-import Questions from './Questions'
+import Questions from './questions'
 import {moveNextQuestion , movePrevQuestion } from '../hooks/FetchQuestion';
 import {PushAnswer} from '../hooks/setResult'
 
@@ -11,7 +11,7 @@ import { Navigate } from 'react-router-dom';
 export default function Quiz() {
   const[check, setChecked] =useState(undefined)
 
-  const result = useSelector(state => state.result.result);
+  const result =  (state => state.result.result);
   const {queue,trace} = useSelector(state => state.questions);
   const dispatch = useDispatch()
 

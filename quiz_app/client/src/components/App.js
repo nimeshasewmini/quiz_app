@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path : '/quiz',
-    element :<CheckUserExist><Quiz/></CheckUserExist>
+    element :<Quiz/>
   },
   {
     path : '/result',

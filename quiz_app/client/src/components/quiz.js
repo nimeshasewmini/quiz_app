@@ -1,5 +1,5 @@
 import React,  { useEffect, useState } from 'react'
-import Questions from './questions'
+import Questions from './Questions'
 import {moveNextQuestion , movePrevQuestion } from '../hooks/FetchQuestion';
 import {PushAnswer} from '../hooks/setResult'
 

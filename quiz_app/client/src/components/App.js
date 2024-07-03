@@ -3,8 +3,8 @@ import '../styles/App.css';
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 /**import components*/
 import Main from './Main';
-import Quiz from './quiz';
-import Result from './result';
+import Quiz from './Quiz';
+import Result from './Result';
 import { CheckUserExist } from '../helper/helper';
 
 

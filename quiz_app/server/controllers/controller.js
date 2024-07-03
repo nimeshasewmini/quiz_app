@@ -1,12 +1,27 @@
+import Questions from "../models/questionSchema.js";
+import Results from "../models/resultSchema.js";
+import questions, { answers } from '../database/data.js'
+
 
 /**get all questions */
 export async function getQuestions(req,res){
-    res.json("questions api get request");
+    try {
+        const q = await Questions.find();
+        res.json(q)
+    } catch (error) {
+        res.json({error})
+    }
 }
 
 /**insert all questions */
 export async function insertQuestions(req,res){
-    res.json("questions api post request");
+   try {
+    Questions.insertMany({ questions:[0], answers:[1] }, function(error,data){
+        res.json({ msg : "data saved successfully..!"})
+    })
+   } catch (error) {
+    res.json({error})
+   }
 }
 
 /**delete all questions */
@@ -17,7 +32,7 @@ export async function dropQuestions(req,res){
 /**get all result */
 export async function getResult(req,res){
     res.json("result api get request");
-}
+}   
 
 /**insert all result */
 export async function storeResult(req,res){

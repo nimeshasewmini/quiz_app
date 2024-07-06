@@ -16,7 +16,7 @@ export const useFetchQuestion = () => {
         /**async function fetch backend data */
         (async () => {
             try {
-                //let question = await data;
+               
                 const [{ questions, answers }] = await getServerData(`${process.env.REACT_APP_SERVER_HOSTNAME}/api/questions`, (data) => data) 
                 if(questions.length > 0 ){
                     setGetData(prev => ({...prev, isLoading : false}));

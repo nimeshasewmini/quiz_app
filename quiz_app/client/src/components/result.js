@@ -9,11 +9,9 @@ import { attempts_Number, earnPoints_Number, flagResult} from '../helper/helper'
 /**import actions */
 import { resetAllAction } from '../redux/question_reducer';
 import { resetResultAction } from '../redux/result_reducer';
+import { usePublishResult } from '../hooks/setResult'
 //import{usePublishResult} from '../hooks/setResult';
 
-function onRestart() {
-  // Function logic here
-}
 
 
 export default function Result(){
@@ -21,10 +19,28 @@ export default function Result(){
   const dispatch = useDispatch()
   const {questions : {queue,answers}, result : {result, userID}} = useSelector (state => state)
 
+  useEffect(()=> {
+    console.log(flag)
+  })
   const totalPoints = queue.length *10;
   const attempts = attempts_Number(result);
   const earnPoints = earnPoints_Number(result,answers,10)
   const flag = flagResult (totalPoints, earnPoints)
+
+    /**user result */
+    usePublishResult({
+      result, 
+      username: userID, 
+      attempts, 
+      points : earnPoints, 
+      achived: flag? "pass":"fail"})
+    
+
+  
+function onRestart() {
+  dispatch(resetAllAction())
+  dispatch(resetResultAction())
+}
 /* 
   usePublishResult({
     result,

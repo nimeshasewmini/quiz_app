@@ -37,7 +37,8 @@ export default function Main() {
       </form>
 
       <div className='start'>
-        <Link to="#" className='start btn' onClick={startQuiz}>Start Quiz</Link>
+        <Link className='start btn'  to={'quiz'}  onClick={startQuiz}>Start Quiz</Link>
+        
       </div>
     </div>
   );

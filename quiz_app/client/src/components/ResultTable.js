@@ -1,12 +1,16 @@
 import React,{useEffect, useState} from 'react'
+import { getServerData } from '../helper/helper'
 //import {getServerData} from "../helper/helper"
-
 
 export default function ResultTable() {
 
   const [data,setData]= useState([])
 
- // useEffect
+ useEffect(()=>{
+  getServerData(`&{ process.env.REACT_APP_SERVER_HOSTNAME}/api/result`,(res) => {
+    setData(res)
+  })
+ })
  
   return (
     <div>
@@ -20,12 +24,18 @@ export default function ResultTable() {
             </tr>
         </thead>
         <tbody>
-            <tr className='table-body'>
-                <td>Nima</td>
-                <td>03</td>
-                <td>20</td>
-                <td>Passed</td>
-            </tr>
+            { !data?? <div>No data found </div>}
+            {
+              data.map (( v,i ) => {
+                <tr className='table-body' key={i}>
+                    <td>{v?.username || ' ' }</td>
+                    <td>{v?.attempts ||0}</td>
+                    <td>{v?.points || 0 }</td>
+                    <td>{v?.achived || " " }</td>
+                </tr>
+              })
+            }
+           
         </tbody>
       </table>
     </div>

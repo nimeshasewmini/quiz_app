@@ -8,7 +8,6 @@ import Result from './Result';
 import { CheckUserExist } from '../helper/helper';
 
 
-
 /**react router */
 const router = createBrowserRouter([
   {

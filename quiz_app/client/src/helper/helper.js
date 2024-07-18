@@ -14,11 +14,18 @@ export function flagResult(totalPoints,earnPoints){
     return (totalPoints * 50 / 100 ) < earnPoints; /**earn 50% marks */
 }
 
-/**check user auth */
+// Assuming CheckUserExist is a function, define it first
+export function CheckUserExist() {
+    // Your function implementation
+}
+
+/**check user auth 
 export function CheckUserExist({ children }) { 
     const auth = useSelector(state=> state.result.UserId)
     return auth ? children : <Navigate to={'/'} replace={true}> </Navigate>
-}
+    
+} */
+
 
 //get server data
 export async function getServerData(url, callback){
